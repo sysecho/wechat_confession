@@ -1,13 +1,25 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="/pages/images/hnust.jpg" mode="cover"></image>
+      <text class="userinfo-nickname">湖南科大表白墙</text>
+</view>
+<view>
+      <form bindsubmit="formSubmit" bindreset="formReset">
+        <view class="toUser">
+          <view>嘿，那个谁:</view>
+          <input name="userName" placeholder="欧皓辰" />
+        </view>
+
+        <view class="content">
+          <view>那么喜欢Ta说点什么吧:</view>
+          <textarea name="content" placeholder="我选你啊！"></textarea> 
+        </view>
+        <view class="from">
+          <view>From:</view>
+          <input name="from" placeholder="不填则匿名发送"/> 
+        </view>
+        <view class="btn-area">
+          <button type="primary" formType="submit">发送</button>
+        </view>
+    </form>
 </view>

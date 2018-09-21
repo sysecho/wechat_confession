@@ -4,51 +4,51 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    userName:'',
+    content:''
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
+  formSubmit: function (e) {
+    if (!e.detail.value.userName){
+      wx.showToast({
+        title: '名字都没勇气说吗？', 
+        icon: 'none',
+        duration: 1500,
+        mask: true
+      });
+      return;
     }
-  },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
+    if (!e.detail.value.content) {
+      wx.showToast({
+        title: '难道你什么都不想说？',
+        icon: 'none',
+        mask: true,
+        duration: 1500,
+      });
+      return;
+    }
+    wx.request({
+      url: 'https://www.mmptech.xin/confession/index/submit',
+      data: {
+        name: e.detail.value.userName,
+        content: e.detail.value.content,
+        fromeUser: e.detail.value.from
+      },
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' // 默认值
+      },
+      success(res) {
+        if (res.data.success){
+          wx.showToast({
+            title: '已经提交成功，耐心等待推送吧，请不要重复提交哦0.0',
+            icon: 'success',
+            mask: true,
+            duration: 1500,
+          });
+        }
+      }
     })
   }
+
+  
 })
