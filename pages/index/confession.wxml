@@ -1,0 +1,6 @@
+<view>
+  <view class="successView">
+      <icon type="success" size="72"/>
+      <view>消息提交成功！</view>
+  </view>
+</view>

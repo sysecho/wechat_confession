@@ -6,16 +6,16 @@
 <view>
       <form bindsubmit="formSubmit" bindreset="formReset">
         <view class="toUser">
-          <view>嘿，那个谁:</view>
+          <view>嘿，那个谁</view>
           <input name="userName" placeholder="欧皓辰" />
         </view>
 
         <view class="content">
-          <view>那么喜欢Ta说点什么吧:</view>
+          <view>那么喜欢Ta说点什么吧</view>
           <textarea name="content" placeholder="我选你啊！"></textarea> 
         </view>
         <view class="from">
-          <view>From:</view>
+          <view>From</view>
           <input name="from" placeholder="不填则匿名发送"/> 
         </view>
         <view class="btn-area">

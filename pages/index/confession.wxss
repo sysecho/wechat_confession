@@ -1,0 +1,5 @@
+/* pages/index/confession.wxss */
+.successView{
+  margin: 50px;
+  text-align: center;
+}

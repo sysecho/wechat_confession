@@ -39,11 +39,16 @@ Page({
       },
       success(res) {
         if (res.data.success){
-          wx.showToast({
-            title: '已经提交成功，耐心等待推送吧，请不要重复提交哦0.0',
+          wx.showToast  ({
+            title: '已经提交成功，耐心等待推送吧~.~',
             icon: 'success',
             mask: true,
-            duration: 1500,
+            duration: 20000,
+            complete: function(){
+              wx.redirectTo({
+                url:'confession'
+              })
+            } 
           });
         }
       }
