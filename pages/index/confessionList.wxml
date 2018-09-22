@@ -1,0 +1,25 @@
+<view class="container">
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="/pages/images/hnust.jpg" mode="cover"></image>
+      <text class="userinfo-nickname">湖南科大表白墙</text>
+</view>
+<view class="body">
+  <view class='titleLocation'><text class="title">历史留言墙</text></view>
+  <view wx:for="{{confessions}}" wx:for-index="idx" wx:for-item="itemName">
+    <scroll-view>
+      <view class='line'></view>
+      <view class='name'>
+        <view wx:if="{{itemName.name}}">{{itemName.name}}</view>
+        <view wx:if="{{!itemName.name}}">全世界</view>
+      </view>
+
+      <view class='content'><text decode="false">&emsp;&emsp;{{itemName.content}}</text></view> 
+
+      <view class='fromeUser'>
+        <view wx:if="{{itemName.fromeUser}}">{{itemName.fromeUser}}</view>
+        <view wx:if="{{!itemName.fromeUser}}">匿名留言</view>
+      </view> 
+
+      <view class="createDate"><text class="systemFont">{{itemName.createDate}}</text></view> 
+    </scroll-view>
+  </view>
+</view>

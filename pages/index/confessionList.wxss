@@ -1,0 +1,43 @@
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.body{
+  margin: 50rpx 20rpx 50rpx 20rpx;
+}
+
+.name{
+  margin-top: 30px;
+  border-radius: .1rem .1rem 0 0;
+  font-size: 1rem;
+}
+
+.content{
+  text-align: left;
+}
+
+.createDate,.fromeUser{
+  text-align: right;
+}
+
+.line{
+  margin: 0 auto;
+  height: 2rpx;
+  background-color: rgba(12, 12, 12, 0.884);
+} 
+
+.systemFont{
+  color:darkgray;
+  font-size: 30rpx;
+}
+
+.title{
+  color:deepskyblue;
+}
+
+.titleLocation{
+  text-align: right;
+}
