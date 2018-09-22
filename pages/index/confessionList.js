@@ -16,10 +16,9 @@ Page({
     wx.request({
       url: 'https://www.mmptech.xin/confession/index/listConfessions',
       data: {
-        page: 0,
-        size: 1000
+       
       },
-      method: 'POST',
+      method: 'GET',
       header: {
         'content-type': 'application/x-www-form-urlencoded' // 默认值
       },
