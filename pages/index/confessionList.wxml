@@ -20,7 +20,7 @@
       </view> 
 
       <view class="createDate"><text class="systemFont">{{itemName.createDate}}</text></view> 
-
+      <view class='line'></view>
     </scroll-view>
   </view>
   <view class="weui-loadmore weui-loadmore_line" hidden='{{hasmoreData}}'>

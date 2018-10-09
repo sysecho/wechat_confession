@@ -17,6 +17,7 @@ Page({
    */
   onLoad: function (options) {
     this.getConfessionList();
+    console.info('Sysecho page test...');
   },
 
   /**
@@ -53,7 +54,6 @@ Page({
   onPullDownRefresh: function () {
     this.setData({ page: 1, size: 5, confessions: [], hasmoreData: true, hiddenloading: true})
     this.getConfessionList();
-    console.log('刷新数据')
     wx.stopPullDownRefresh();
   },
 
@@ -61,7 +61,6 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    console.log('加载更多')
     this.setData({ hiddenloading: false })
     this.getConfessionList();
   },
@@ -93,13 +92,15 @@ Page({
         wx.hideLoading();
         if (res.data.success) {
           var rows = res.data.rows;
+          var length = self.data.confessions.length;
           if (rows.total == 0) that.setData({hasmoreData: false });
-          for (var i = self.data.confessions.length; i < rows.length + self.data.confessions.length; i++) {
-            self.data.confessions.push(rows[i])
+          for (var i = length,j=0; i < rows.length + length; i++,j++) {
+            self.data.confessions.push(rows[j])
           }
           
-          self.setData({ page: self.data.page + 1, size: 5, confessions: rows, hiddenloading: true});
+          self.setData({ page: self.data.page + 1, size: 5, confessions: self.data.confessions, hiddenloading: true});
           if (!self.data.hasmoreData) that.setData({ hiddenloading: true });
+          
         } else {
           wx.showToast({
             title: '暂时没有数据哦~',
