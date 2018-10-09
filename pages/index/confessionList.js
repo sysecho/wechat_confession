@@ -16,7 +16,8 @@ Page({
     wx.request({
       url: 'https://www.mmptech.xin/confession/index/listConfessions',
       data: {
-       
+        page:1,
+        size:5
       },
       method: 'GET',
       header: {
@@ -24,8 +25,7 @@ Page({
       },
       success(res) {
         if(res.data.success){
-          var rows = res.data.rows;
-          console.info(rows);
+          var rows = res.data.rows;          
           self.setData({ confessions: rows});
         }else{
           wx.showToast({
