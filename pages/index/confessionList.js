@@ -74,7 +74,7 @@ Page({
   getConfessionList: function(){
     var self = this;
     wx.showLoading({
-      title: '加载中',
+      title: '飞机快跑...',
       icon: 'loading',
     });
     
