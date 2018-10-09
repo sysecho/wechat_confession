@@ -17,7 +17,6 @@ Page({
    */
   onLoad: function (options) {
     this.getConfessionList();
-    console.info('Sysecho page test...');
   },
 
   /**
