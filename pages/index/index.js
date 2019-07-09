@@ -27,7 +27,7 @@ Page({
       return;
     }
     wx.request({
-      url: 'https://www.mmptech.xin:8443/confession/index/submit',
+      url: 'https://mp.sysecho.fun/confession/index/submit',
       data: {
         name: e.detail.value.userName,
         content: e.detail.value.content,

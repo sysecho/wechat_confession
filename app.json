@@ -1,14 +1,15 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/confessionList",
     "pages/index/index",
     "pages/index/confession",
     "pages/logs/logs"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "湖科大表白墙",
-    "navigationBarTextStyle":"black"
-  }
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
 }

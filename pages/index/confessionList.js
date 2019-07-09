@@ -78,7 +78,7 @@ Page({
     });
     
     wx.request({
-      url: 'https://www.mmptech.xin:8443/confession/index/listConfessions',
+      url: 'https://mp.sysecho.fun/confession/index/listConfessions',
       data: {
         page: self.data.page,
         size: self.data.size
