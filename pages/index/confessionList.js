@@ -10,20 +10,23 @@ Page({
     confessions: [],
     hasmoreData: true,
     hiddenloading: true,
+    sentence:'...',
+    froms:'匿名'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getConfessionList();
+    this.getConfessionList(); 
+    this.getSentence();   
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    
   },
 
   /**
@@ -44,7 +47,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    
   },
 
   /**
@@ -70,7 +73,27 @@ Page({
   onShareAppMessage: function () {
 
   },
-  getConfessionList: function(){
+
+/**
+ * 获取句子
+ */
+  getSentence:function(){
+    var self = this;
+    wx.request({
+      url: 'https://v1.hitokoto.cn/',
+      method: 'GET',
+      success(res) {               
+        console.info(res);
+        self.setData({ sentence: res.data.hitokoto});
+        self.setData({ froms: res.data.from });
+      }
+  })
+  },
+
+/**
+ * 获取列表
+ */
+  getConfessionList:function(){
     var self = this;
     wx.showLoading({
       title: '飞机快跑...',
