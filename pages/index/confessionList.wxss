@@ -58,7 +58,7 @@
 .froms{
   text-align: right;
   color:darkgray;
-  font-size: 20rpx;
+  font-size: 25rpx;
 }
 
 .topContent{

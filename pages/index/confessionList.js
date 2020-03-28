@@ -57,6 +57,7 @@ Page({
     this.setData({ page: 1, size: 5, confessions: [], hasmoreData: true, hiddenloading: true})
     this.getConfessionList();
     wx.stopPullDownRefresh();
+    this.getSentence();
   },
 
   /**
@@ -64,7 +65,7 @@ Page({
    */
   onReachBottom: function () {
     this.setData({ hiddenloading: false })
-    this.getConfessionList();
+    this.getConfessionList();    
   },
 
   /**
