@@ -19,14 +19,14 @@ Page({
    */
   onLoad: function (options) {
     this.getConfessionList(); 
-    this.getSentence();   
+    this.getRefushSentence();
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+    this.getSentence();
   },
 
   /**
@@ -54,7 +54,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    this.setData({ page: 1, size: 5, confessions: [], hasmoreData: true, hiddenloading: true})
+    this.setData({ page: 0, size: 5, confessions: [], hasmoreData: true, hiddenloading: true})
     this.getConfessionList();
     wx.stopPullDownRefresh();
     this.getSentence();
@@ -76,19 +76,31 @@ Page({
   },
 
 /**
+ * 定时刷新首页内容
+ */
+getRefushSentence:function(){
+  var self = this;
+  setInterval(function() {
+    self.getSentence();
+ }, 3500);
+},
+
+/**
  * 获取句子
  */
   getSentence:function(){
     var self = this;
-    wx.request({
-      url: 'https://v1.hitokoto.cn/',
-      method: 'GET',
-      success(res) {               
-        console.info(res);
-        self.setData({ sentence: res.data.hitokoto});
-        self.setData({ froms: res.data.from });
-      }
-  })
+    //setInterval(function() {
+      wx.request({
+        url: 'https://v1.hitokoto.cn/',
+        method: 'GET',
+        success(res) {               
+          console.info(res);
+          self.setData({ sentence: res.data.hitokoto});
+          self.setData({ froms: res.data.from });
+        }
+    })
+   //}, 2000);
   },
 
 /**
